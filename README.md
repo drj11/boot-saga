@@ -15,13 +15,20 @@ Most of the bulk space is taken up by `initrd.img` files
 
 ## What doesn't work
 
-Suggested by Jez Cope on 2017-04-20
+Suggested by Jez Cope on 2017-04-20:
 
     sudo update-initramfs -k all -u
     
 Note to previous: This does appear to successfully do what is intended:
 the `initrd.img*` files are rebuilt (they change sizes a little bit; hope it doesn't matter).
 
+Suggested by Will Furnass on 2017-04-26:
+
+Move the (suspect) `initrd.img` file away and create it fresh with
+
+    update-initramfs -c -k 3.19.whatever
+    
+(you have to specify the full filename suffix, eg `3.19.0-65-generic`)
 
 
 ## tips, tricks, and diagnostics
